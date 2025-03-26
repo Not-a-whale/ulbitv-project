@@ -3,16 +3,18 @@ import globals from "globals";
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-
+import i18next from 'eslint-plugin-i18next';
 
 export default defineConfig([
     {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
     {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], languageOptions: {globals: globals.browser}},
     {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], plugins: {js}, extends: ["js/recommended"]},
+    i18next.configs['flat/recommended'],
     tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     {
         files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+        plugins: {react: pluginReact, tseslint: tseslint},
         rules: {
             "no-console": "warn",
             "no-unused-vars": "warn",
