@@ -6,6 +6,11 @@ declare module "*.scss" {
     export = classNames;
 }
 
+declare module '*.module.scss' {
+    const classes: { [key: string]: string };
+    export default classes;
+}
+
 declare module "*.svg";
 declare module "*.svg";
 declare module "*.svg" {

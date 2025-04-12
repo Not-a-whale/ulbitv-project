@@ -11,7 +11,7 @@ export function App() {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback={''}>
+            <Suspense fallback={""}>
                 <div className="content-page">
                     <Sidebar/>
                     <AppRouter/>
