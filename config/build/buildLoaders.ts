@@ -41,19 +41,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     return [
         fileLoader,
         svgLoader,
-        {
-            test: /\.module\.scss$/,
-            use: [
-                'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                    },
-                },
-                'sass-loader',
-            ],
-        },
         babelLoader,
         typescriptLoader,
         cssLoader

@@ -8,7 +8,6 @@ export function buildCssLoader(isDev: boolean): any {
             {
                 loader: "css-loader",
                 options: {
-                    esModule: true,
                     modules: {
                         auto: (resourcePath: string) => {
                             return !!resourcePath.endsWith(".module.scss");
