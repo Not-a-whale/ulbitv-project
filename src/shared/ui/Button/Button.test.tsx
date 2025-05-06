@@ -5,7 +5,6 @@ import React from "react";
 
 describe("Button", () => {
     test("Test render", () => {
-        console.log("test is working")
         render(<Button>Button</Button>);
         expect(screen.getByText("Button")).toBeInTheDocument();
     });

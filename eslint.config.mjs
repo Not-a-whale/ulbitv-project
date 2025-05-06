@@ -4,6 +4,7 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import i18next from 'eslint-plugin-i18next';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 export default defineConfig([
     {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
@@ -14,7 +15,7 @@ export default defineConfig([
     pluginReact.configs.flat.recommended,
     {
         files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-        plugins: {react: pluginReact, tseslint: tseslint},
+        plugins: {react: pluginReact, tseslint: tseslint, 'react-hooks': reactHooks},
         rules: {
             "no-console": "warn",
             "no-unused-vars": "warn",
@@ -30,6 +31,9 @@ export default defineConfig([
             "react/jsx-props-no-spreading": "warn",
             "react/no-deprecated": "warn",
             "@typescript-eslint/no-unused-vars": "warn",
+            "jsx-a11y/click-events-have-key-events": "off",
+            'react-hooks/rules-of-hooks': 'error',
+            'react-hooks/exhaustive-deps': 'warn',
         }
     }
 ]);
