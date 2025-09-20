@@ -23,7 +23,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         },
         resolve: buildResolvers(options),
         devtool: mode === "development" ? "inline-source-map" : false,
-        // @ts-ignore
+        // @ts-expect-error webpack types
         devServer: (() => {
             return buildDevServer(options)
         })()
