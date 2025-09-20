@@ -1,4 +1,4 @@
-import {classNames} from "../../../shared/lib/classNames";
+import {classNames} from "shared/lib/classNames";
 import {ButtonHTMLAttributes, FC} from "react";
 import cls from "./Button.module.scss";
 
@@ -21,18 +21,21 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     theme?: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
+    disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-    const {className, children, theme, ...otherProps} = props;
+    const {className, children, theme, disabled, ...otherProps} = props;
     const mods: Record<string, boolean> = {
         [cls[theme] ? cls[theme] : ButtonTheme.CLEAR]: true,
         [cls.square]: props.square || false,
         [cls[props.size] ? cls[props.size] : ButtonSize.M]: true,
+        [cls.disabled]: disabled
     }
     return (
         <button
             className={classNames(cls.button, mods, [className])}
+            disabled={disabled}
             {...otherProps}
         >
             {children}

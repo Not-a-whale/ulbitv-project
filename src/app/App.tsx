@@ -3,12 +3,18 @@ import {classNames} from "shared/lib/classNames";
 import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
-import {Suspense, useState} from "react";
+import {Suspense, useEffect} from "react";
+import {userActions} from "entities/User";
+import {useDispatch} from "react-redux";
 
 export function App() {
-    const {theme} = useTheme();
+    const { theme } = useTheme();
+    const dispatch = useDispatch();
 
-    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
+
 
     return (
         <div className={classNames('app', {}, [theme])}>
